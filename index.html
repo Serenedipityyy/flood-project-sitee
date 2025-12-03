@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Shadows Behind the Flood Control Project</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<meta name="description" content="Shadows Behind the Flood Control Project — investigating environmental, social, and economic impacts of flood control development." />
+<style>
+:root{--navy:#0A1A2F;--bg:#F5F7F9;--muted:#6B7A86;--accent:#4B9DD9;--warn:#EC7B39;--card:#FFFFFF;--radius:14px;--maxwidth:1200px;--glass:rgba(255,255,255,0.6);}
+*{box-sizing:border-box} html,body{height:100%} body{margin:0;font-family:"Open Sans",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;background:linear-gradient(180deg,var(--bg) 0%,#e9eef4 100%);color:#0b1a2a;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.5;}
+.container{max-width:var(--maxwidth);margin:0 auto;padding:28px;}
+header.site-header{position:sticky;top:0;z-index:100;backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(10,26,47,0.85), rgba(10,26,47,0.75));color:#fff;box-shadow:0 4px 18px rgba(10,26,47,0.15);}
+.site-header .container{display:flex;align-items:center;gap:18px;padding:14px 22px;}
+.logo{font-family:"Montserrat";font-weight:800;letter-spacing:0.2px;font-size:18px;}
+nav.main-nav{margin-left:auto;display:flex;gap:12px;align-items:center;}
+nav.main-nav a{color:#d7eafc;text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+nav.main-nav a:hover{background:rgba(255,255,255,0.06);color:#fff}
+.btn-primary{background:var(--accent);color:#fff;padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+.mobile-toggle{display:none;background:transparent;border:0;color:#fff;font-size:20px}
+.hero{display:grid;grid-template-columns:1fr 440px;gap:28px;align-items:center;padding:64px 0;}
+.hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.88));padding:32px;border-radius:16px;box-shadow:0 8px 30px rgba(10,26,47,0.08);}
+h1{font-family:"Montserrat";font-size:36px;margin:0 0 8px} p.lead{color:var(--muted);margin:0 0 18px} .hero-cta{display:flex;gap:12px;flex-wrap:wrap} .stats{display:flex;gap:12px;margin-top:18px} .stat{background:#fff;padding:10px 14px;border-radius:10px;box-shadow:0 6px 18px rgba(10,26,47,0.06);min-width:110px;font-weight:700} .hero-media{border-radius:14px;overflow:hidden;box-shadow:0 12px 34px rgba(10,26,47,0.12)}
+section{padding:50px 0} section.section-card{background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.6));border-radius:14px;padding:28px;box-shadow:0 8px 30px rgba(10,26,47,0.05)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 8px 18px rgba(10,26,47,0.05)}
+.muted{color:var(--muted)}
+.tag{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;background:rgba(75,157,217,0.12);color:var(--accent);font-size:13px}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.gallery img{width:100%;height:160px;object-fit:cover;border-radius:10px;display:block}
+form.contact-form{display:grid;gap:12px}
+input,textarea,select{padding:12px;border-radius:8px;border:1px solid #dbe6ef;font-size:15px} textarea{min-height:140px;resize:vertical}
+footer{padding:28px 0;margin-top:28px;color:#fff;background:linear-gradient(180deg,var(--navy), #071124);border-top:1px solid rgba(255,255,255,0.03)}
+footer .container{display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap}
+footer a{color:rgba(255,255,255,0.9);text-decoration:none}
+.small{font-size:13px;color:rgba(255,255,255,0.7)}
+.center{text-align:center}
+.right{text-align:right}
+.mb-8{margin-bottom:24px}
+.section-title{font-family:"Montserrat";font-size:22px;margin-bottom:8px}
+@media (max-width:980px){.hero{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}nav.main-nav{display:none}.mobile-toggle{display:inline-block;margin-left:auto}}
+@media (max-width:560px){.gallery img{height:120px}h1{font-size:28px}}
+a.anchor{scroll-behavior:smooth}
+.fade-in{opacity:0;transform:translateY(8px);animation:fadeIn .9s forwards}
+@keyframes fadeIn{to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="site-header" role="banner" aria-label="Main header">
+<div class="container">
+<div class="logo" aria-hidden="false">Shadows Behind the Flood Control Project</div>
+<button class="mobile-toggle" id="mobileToggle" aria-controls="mainNav" aria-expanded="false">☰</button>
+<nav id="mainNav" class="main-nav" role="navigation" aria-label="Main navigation">
+<a href="#home" class="anchor">Home</a>
+<a href="#about" class="anchor">About</a>
+<a href="#impact" class="anchor">Environmental Impact</a>
+<a href="#stories" class="anchor">Community Stories</a>
+<a href="#issues" class="anchor">Issues</a>
+<a href="#research" class="anchor">Research</a>
+<a href="#gallery" class="anchor">Gallery</a>
+<a href="#members" class="anchor">Members</a>
+<a href="#viewpoints" class="anchor">Viewpoints & Solutions</a>
+<a href="#getinvolved" class="anchor btn-primary">Get Involved</a>
+</nav>
+</div>
+</header>
+<main id="home" class="container" role="main">
+<!-- HERO -->
+<section class="hero" aria-label="Introduction hero">
+<div class="hero-card fade-in">
+<span class="tag">Investigative Project</span>
+<h1>Shadows Behind the Flood Control Project</h1>
+<p class="lead">Uncovering the environmental, social, and economic consequences that often stay behind the concrete — an independent look at how flood control projects affect communities.</p>
+<div class="hero-cta">
+<a href="#stories" class="btn-primary">Read Community Stories</a>
+<a href="#research" class="anchor" style="padding:10px 12px;border-radius:10px;background:transparent;color:var(--accent);font-weight:700;text-decoration:none;border:1px solid rgba(75,157,217,0.12)">View Research & Data</a>
+</div>
+<div class="stats" aria-hidden="false">
+<div class="stat"><div style="font-size:13px;color:var(--muted)">Documents</div><div>124+</div></div>
+<div class="stat"><div style="font-size:13px;color:var(--muted)">Voices</div><div>57+</div></div>
+<div class="stat"><div style="font-size:13px;color:var(--muted)">Sites Covered</div><div>9</div></div>
+</div>
+</div>
+<div class="hero-media fade-in" style="text-align:right">
+<img src="images/77ed63a7-2c49-4dfe-9805-cd97b3b6ad93 (2).jpg" alt="River with flood control structure" style="width:100%;height:100%;max-height:420px;object-fit:cover">
+</div>
+</section>
+<!-- ABOUT -->
+<section id="about" aria-labelledby="aboutTitle">
+<div class="section-card">
+<h2 id="aboutTitle" class="section-title">About the Project</h2>
+<div class="grid-2">
+<div>
+<p class="muted">Flood control projects promise safety and resilience. But their implementation can bring complex trade-offs—social displacement, ecological damage, budget overruns, and local safety hazards. This project documents both the official plans and the consequences left in the shadows.</p>
+<h3 style="margin-top:16px">Our Goals</h3>
+<ul>
+<li>Document community experiences and testimonies.</li>
+<li>Collect and present objective research and data.</li>
+<li>Promote transparency and better planning.</li>
+<li>Encourage solutions that balance safety and livelihoods.</li>
+</ul>
+</div>
+<div>
+<h3>What a Typical Flood Control Project Includes</h3>
+<ul>
+<li>Drainage systems and pumping stations</li>
+<li>River widening and channelization</li>
+<li>Dikes, levees, and retaining walls</li>
+<li>Slope protection and slope regrading</li>
+</ul>
+<p class="muted">Each measure can reduce flood risk locally — but can also shift impacts to other areas or harm ecosystems when poorly planned.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ENVIRONMENTAL IMPACT -->
+<section id="impact" aria-labelledby="impactTitle">
+<h2 id="impactTitle" class="section-title">Environmental Impact</h2>
+<div class="grid-2">
+<div class="card">
+<h3>River Ecosystems</h3>
+<p class="muted">Channelization and river widening alter habitats and migration routes for fish and aquatic life. Natural floodplains often act as sponges — removing them increases flow speed and downstream risks.</p>
+</div>
+<div class="card">
+<h3>Soil, Erosion, and Sedimentation</h3>
+<p class="muted">Unplanned bank reinforcement and excavation can destabilize nearby slopes and increase sediment downstream, harming water quality and fisheries.</p>
+</div>
+<div class="card">
+<h3>Vegetation Loss</h3>
+<p class="muted">Removal of riparian trees and mangroves reduces biodiversity and increases local heat and erosion.</p>
+</div>
+<div class="card">
+<h3>Risk Transfer</h3>
+<p class="muted">Improvements in one area can push flood risk to adjacent barangays if flow paths aren't carefully modelled.</p>
+</div>
+</div>
+</section>
+<!-- COMMUNITY STORIES -->
+<section id="stories" aria-labelledby="storiesTitle">
+<h2 id="storiesTitle" class="section-title">Community Stories</h2>
+<p class="muted">Voices from families, barangay officials, fisherfolk, and small business owners affected by flood control works.</p>
+<div class="grid-2" style="margin-top:20px">
+<article class="card" aria-labelledby="story1">
+<h3 id="story1">“We were not consulted”</h3>
+<p class="muted">A family recounts sudden notices of demolition, relocation without proper consultation, and delays in promised resettlement assistance.</p>
+</article>
+<article class="card" aria-labelledby="story2">
+<h3 id="story2">“The fish are gone”</h3>
+<p class="muted">Fisherfolk describe a drop in catches after river rechanneling changed currents and spawning areas.</p>
+</article>
+</div>
+<div style="margin-top:18px" class="card">
+<h4>Submit Your Story</h4>
+<p class="muted">Share a testimony, photo, or short video. We will anonymize submissions upon request.</p>
+<form id="storyForm" class="contact-form" onsubmit="return submitStory(event)">
+<input type="text" id="name" placeholder="Your name (or anonymous)" />
+<input type="email" id="email" placeholder="Email (optional — for follow up)" />
+<textarea id="story" placeholder="Write your story or message here..." required></textarea>
+<input type="text" id="location" placeholder="Barangay / City (optional)" />
+<button class="btn-primary" type="submit" style="width:fit-content">Send Story</button>
+<p id="storyMsg" class="muted small" style="margin-top:6px"></p>
+</form>
+</div>
+</section>
+<!-- ISSUES & CONTROVERSIES -->
+<section id="issues" aria-labelledby="issuesTitle">
+<h2 id="issuesTitle" class="section-title">Issues & Controversies</h2>
+<div class="grid-2">
+<div>
+<div class="card">
+<h3>Budget Transparency</h3>
+<p class="muted">We track reported budgets, contractor changes, and delays. Documented overruns and unclear procurement records raise questions about accountability.</p>
+</div>
+<div class="card" style="margin-top:12px">
+<h3>Construction Quality</h3>
+<p class="muted">Reports of substandard materials, unfinished sections, and visible structural issues have been raised by residents and inspectors.</p>
+</div>
+</div>
+<div>
+<div class="card">
+<h3>Public Consultation</h3>
+<p class="muted">Affected communities often report insufficient consultation. We encourage meaningful, documented engagement before construction begins.</p>
+</div>
+<div class="card" style="margin-top:12px">
+<h3>Environmental Compliance</h3>
+<p class="muted">We compile environmental impact statements and note where compliance documentation is missing or inaccessible to the public.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- RESEARCH & DATA -->
+<section id="research" aria-labelledby="researchTitle">
+<h2 id="researchTitle" class="section-title">Research, Data & Documents</h2>
+<p class="muted">Accessible reports, simplified data visualizations, and relevant government documents help the public understand cost, scope, and technical decisions.</p>
+<div class="grid-3" style="margin-top:18px">
+<div class="card">
+<h4>DPWH / LGU Documents</h4>
+<p class="muted">Project scope, timelines, and contractor lists. (Upload scanned PDFs to your files and link here.)</p>
+</div>
+<div class="card">
+<h4>Environmental Assessments</h4>
+<p class="muted">Impact assessments and mitigation measures. We summarize key findings for public consumption.</p>
+</div>
+<div class="card">
+<h4>Maps & Progress Charts</h4>
+<p class="muted">Before/after maps, cross-sections, and progress timelines. Use drone imagery where available for transparency.</p>
+</div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" aria-labelledby="galleryTitle">
+<h2 id="galleryTitle" class="section-title">Photo & Video Gallery</h2>
+<p class="muted">Visual documentation of construction phases, affected communities, and environmental changes.</p>
+<div class="gallery" style="margin-top:12px">
+<img alt="gallery-1" src="images/4cf1298e-c4cb-4b13-b8d3-8ce706fa9eab.jpg">
+<img alt="gallery-2" src="images/50ff4a27-bebb-401e-a50c-d739787542c0.jpg">
+<img alt="gallery-3" src="images/e2c235f5-0c28-495a-b75c-11414e698817.jpg">
+<img alt="gallery-4" src="images/e9bca1a4-df59-4acd-97a8-07b64780afea.jpg">
+</div>
+<p class="muted small" style="margin-top:12px">Click any image to enlarge (lightbox).</p>
+</section>
+
+<!-- MEMBERS -->
+<section id="members" aria-labelledby="membersTitle">
+<h2 id="membersTitle" class="section-title">Project Members</h2>
+<p class="muted">Meet the team documenting the impacts of flood control projects.</p>
+<div class="grid-3" style="margin-top:12px">
+<div class="card"><img src="images/cruz.jpg" alt="Prince Orlando M. Cruz" style="width:100%;border-radius:10px"><h4>Prince Orlando M. Cruz</h4></div>
+<div class="card"><img src="images/fernandez.jpg" alt="Princess Trina E. Fernandez" style="width:100%;border-radius:10px"><h4>Princess Trina E. Fernandez</h4></div>
+<div class="card"><img src="images/gagarin.jpg" alt="Celine F. Gagarin" style="width:100%;border-radius:10px"><h4>Celine F. Gagarin</h4></div>
+<div class="card"><img src="images/ignacio.jpg" alt="Angelica Nicole R. Ignacio" style="width:100%;border-radius:10px"><h4>Angelica Nicole R. Ignacio</h4></div>
+<div class="card"><img src="images/mendoza.jpg" alt="Rhodeannmhel Neri Mendoza" style="width:100%;border-radius:10px"><h4>Rhodeannmhel Neri Mendoza</h4></div>
+<div class="card"><img src="images/neri.jpg" alt="Carmelita May P. Neri" style="width:100%;border-radius:10px"><h4>Carmelita May P. Neri</h4></div>
+<div class="card"><img src="images/ravancho.jpg" alt="Zachi N. Ravancho" style="width:100%;border-radius:10px"><h4>Zachi N. Ravancho</h4></div>
+<div class="card"><img src="images/vicente.jpg" alt="Alyssa Casandra T. Vicente" style="width:100%;border-radius:10px"><h4>Alyssa Casandra T. Vicente</h4></div>
+</div>
+</section>
+
+<!-- VIEWPOINTS & SOLUTIONS -->
+<section id="viewpoints" aria-labelledby="viewpointsTitle">
+<h2 id="viewpointsTitle" class="section-title">Viewpoints & Solutions</h2>
+<div class="grid-2" style="margin-top:18px">
+<div class="card">
+<h3>Government</h3>
+<ul class="muted">
+<li>Protection from natural disasters: Essential to prevent loss of lives and property.</li>
+<li>Economic benefits: Encourages investment, development, and infrastructure growth.</li>
+<li>Long-term cost savings: Prevention is cheaper than repeated disaster recovery.</li>
+</ul>
+</div>
+<div class="card">
+<h3>Environmentalists</h3>
+<ul class="muted">
+<li>Ecosystem disruption: Alters river flow, wetlands, and fish habitats.</li>
+<li>False sense of security: Can lead people to settle in vulnerable areas.</li>
+<li>Climate resilience concerns: Some projects may fail under future climate realities.</li>
+</ul>
+</div>
+<div class="card">
+<h3>Local Community</h3>
+<ul class="muted">
+<li>Support for protection: Reduced flooding and improved safety welcomed.</li>
+<li>Concerns about displacement: Fear losing homes or livelihoods.</li>
+<li>Distrust due to transparency issues: Budget misuse or questionable contractors create tension.</li>
+<li>Impact on daily life: Construction noise, traffic, temporary livelihood disruptions.</li>
+</ul>
+</div>
+<div class="card">
+<h3>Economists</h3>
+<ul class="muted">
+<li>High project cost: Budget allocations raise prioritization questions.</li>
+<li>Risk of corruption: Contracts prone to overpricing or kickbacks.</li>
+<li>Cost-benefit concerns: Benefits may not justify public spending.</li>
+<li>Maintenance burden: Long-term upkeep may not be sustained.</li>
+</ul>
+</div>
+<div class="card">
+<h3>Planners & Engineers</h3>
+<ul class="muted">
+<li>Technical necessity: Flood control sometimes unavoidable in dense cities.</li>
+<li>Limitations of structures: Dikes or channels alone cannot prevent all flooding.</li>
+<li>Risk of engineering oversights: Poor design may worsen flooding elsewhere.</li>
+</ul>
+</div>
+<div class="card">
+<h3>Human Rights & Social Justice Groups</h3>
+<ul class="muted">
+<li>Unequal impact on the poor: Low-income households suffer most from relocation.</li>
+<li>Lack of consultation: Communities often feel unheard.</li>
+<li>Right to safe housing and livelihood: Emphasizes humane relocation, fair compensation, and long-term support.</li>
+</ul>
+</div>
+<div class="card">
+<h3>Media & Public</h3>
+<ul class="muted">
+<li>Mixed reactions: Project seen as necessary by some, political tool by others.</li>
+<li>Highlight controversies: Delays, corruption allegations, or environmental damage.</li>
+<li>Public pressure for accountability: Transparency in budgets, timelines, and compliance.</li>
+</ul>
+</div>
+</div>
+<div class="card" style="margin-top:18px">
+<h4>Sources</h4>
+<ul class="muted" style="font-size:14px">
+<li><a href="https://amp.dw.com/en/philippines-thousands-protest-corruption-in-flood-projects/a-74956055">DW News: Philippines Flood Project Protests</a></li>
+<li><a href="https://www.reutersconnect.com/item/tens-of-thousands-protest-corruption-in-manila-after-discovery-of-nationwide-ghost-flood-control-infrastructure-projects/dGFnOnJldXRlcnMuY29tLDIwMjU6bmV3c21sX01UMUFOQURMMDAwUFZVNU5B">Reuters: Ghost Flood-Control Projects</a></li>
+<li><a href="https://www.washingtonpost.com/world/2025/11/30/philippines-flood-control-corruption-ferdinand-marcos-jr/1b40c5de-cdae-11f0-ac2a-e98510180900_story.html">Washington Post: Flood Control Corruption Scandal</a></li>
+</ul>
+</div>
+</section>
+
+<footer>
+<div class="container center">
+<p class="small">© 2025 Shadows Behind the Flood Control Project. All rights reserved.</p>
+</div>
+</footer>
+
+<script>
+const toggle = document.getElementById('mobileToggle');
+const nav = document.getElementById('mainNav');
+toggle.addEventListener('click',()=>{nav.style.display=nav.style.display==='flex'?'none':'flex'});
+function submitStory(e){e.preventDefault();document.getElementById('storyMsg').textContent='Thank you! Your story has been received.';return false;}
+</script>
+</body>
+</html>
